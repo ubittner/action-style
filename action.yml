@@ -6,6 +6,9 @@ runs:
   steps:
       - run: git submodule update --init -- .style
         shell: bash
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
       - run: wget https://cs.symfony.com/download/php-cs-fixer-v3.phar
         shell: bash
       - run: PHP_CS_FIXER_IGNORE_ENV=1  php php-cs-fixer-v3.phar fix --config=.style/.php-cs-fixer.php -v --dry-run --allow-risky=yes
